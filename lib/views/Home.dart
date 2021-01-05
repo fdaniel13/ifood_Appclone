@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'page/Perfil.dart';
+import 'package:ifood_clone/views/page/pedidos.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,7 +11,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  var l = 'home';
+
+  String l = 'home';
 
 
   
@@ -20,12 +22,13 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:
 
-       l=='home'?
+    return Scaffold(
+      body:estado(l),
+
+    /*l=='home'?
            defaultTabControllerCustom()
-                : l=='user' ? Perfil() :defaultTabControllerCustom(),
+                : l=='user' ? Pedido()/*Perfil()*/ :defaultTabControllerCustom(),*/
       bottomNavigationBar:BottomAppBarCustom(f) ,
     );
 
@@ -37,6 +40,21 @@ class _HomeState extends State<Home> {
   }
 }
 
+
+Widget estado(String l){
+
+  switch(l) {
+    case 'home': return defaultTabControllerCustom();
+    break;
+    case 'user': return Perfil();
+    break;
+    case 'pedido': return Pedido();
+    break;
+    default: return defaultTabControllerCustom();
+    break;
+  }
+
+}
 
 Widget defaultTabControllerCustom(){
 
@@ -128,7 +146,7 @@ Widget defaultTabControllerCustom(){
 
 
             Container(
-              color: Colors.greenAccent,
+
             )
           ],
         ),
@@ -218,7 +236,7 @@ Widget BottomAppBarCustom(var l){
                   color: Color.fromRGBO(1, 1, 1, 0.4),
                 ),
                 onPressed:  (){
-
+                  l('pedido');
                 },
                 focusColor: Colors.black,
 

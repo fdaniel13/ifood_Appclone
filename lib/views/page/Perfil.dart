@@ -99,67 +99,72 @@ class _PerfilState extends State<Perfil> {
         child: ListView.builder(
             itemCount: infoP.length,
             itemBuilder: (contextList,index){
-              return Padding(
-                padding: EdgeInsets.only(
-                    right:mediaH*0.02,
-                    left:mediaH*0.02,
-                ),
-                child: Container(
-                  height: mediaH*0.12,
-                  margin: EdgeInsets.only(top: index==8? mediaH*0.07:0),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                          color: Color(0xffDFDFDF),
-                        width: mediaH*0.002
-                      )
-                    )
+              return GestureDetector(
+                onTap: (){
+                  print('lista');
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      right:mediaH*0.02,
+                      left:mediaH*0.02,
                   ),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment:  CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              infoP[index][0],
-                              size: mediaH*0.04,
-                                color: Color(0xff5D5D5D)
-                            ),
-                            Padding(
-                              padding:  EdgeInsets.only(left: mediaW*0.04,
+                  child: Container(
+                    height: mediaH*0.12,
+                    margin: EdgeInsets.only(top: index==8? mediaH*0.07:0),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                            color: Color(0xffDFDFDF),
+                          width: mediaH*0.002
+                        )
+                      )
+                    ),
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment:  CrossAxisAlignment.center,
+                            children: [
+                              Icon(
+                                infoP[index][0],
+                                size: mediaH*0.04,
+                                  color: Color(0xff5D5D5D)
                               ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
+                              Padding(
+                                padding:  EdgeInsets.only(left: mediaW*0.04,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
 
-                                  Text(
-                                    infoP[index][1],
-                                    style: TextStyle(
-                                        fontSize: mediaH*0.03,
-                                      color: Color(0xff4A4A4A)
+                                    Text(
+                                      infoP[index][1],
+                                      style: TextStyle(
+                                          fontSize: mediaH*0.03,
+                                        color: Color(0xff4A4A4A)
+                                      ),
                                     ),
-                                  ),
-                                  index <=7 ? Text(
-                                    infoP[index][2],
-                                    style: TextStyle(
-                                        fontSize: mediaH*0.02,
-                                        color: Color(0xff9E9E9E)
-                                    ),
-                                  ):Container()
-                                ],
+                                    index <=7 ? Text(
+                                      infoP[index][2],
+                                      style: TextStyle(
+                                          fontSize: mediaH*0.02,
+                                          color: Color(0xff9E9E9E)
+                                      ),
+                                    ):Container()
+                                  ],
+                                ),
                               ),
-                            ),
 
-                          ],
-                        ),
-                        Icon(Icons.arrow_forward_ios,
-                          size: mediaH*0.02,
-                          color:Color(0xff9E9E9E) ,)
-                      ],
+                            ],
+                          ),
+                          Icon(Icons.arrow_forward_ios,
+                            size: mediaH*0.02,
+                            color:Color(0xff9E9E9E) ,)
+                        ],
+                      ),
                     ),
                   ),
                 ),
