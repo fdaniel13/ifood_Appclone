@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'page/Perfil.dart';
 import 'package:ifood_clone/views/page/pedidos.dart';
+import 'package:flutter/services.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -22,7 +23,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,DeviceOrientation.portraitDown
+    ]);
     return Scaffold(
       body:estado(l),
 
