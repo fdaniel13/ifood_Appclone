@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body:estado(l,context),
 
-      bottomNavigationBar:BottomAppBarCustom(f) ,
+      bottomNavigationBar:BottomAppBarCustom(f,context) ,
     );
 
 
@@ -68,7 +68,7 @@ Widget defaultTabControllerCustom(context){
       child:Scaffold(
 
         appBar: AppBar(
-          leadingWidth: 150,
+          leadingWidth: MediaQuery.of(context).size.width*0.4,
 
           backgroundColor: Colors.white,
           leading: Center(child: Text( 'Conj.Boa Vista Qu.10,78',
@@ -88,12 +88,12 @@ Widget defaultTabControllerCustom(context){
                 onPressed: null)
 
           ],
-          toolbarHeight: 90,
+          toolbarHeight: MediaQuery.of(context).size.height*0.14,
           bottom:TabBar(
             indicatorColor: Colors.red,
             labelPadding: EdgeInsets.zero,
             labelStyle: TextStyle(
-              fontSize: 18,
+              fontSize: MediaQuery.of(context).size.height*0.024,
               fontWeight: FontWeight.w400,
 
             ),
@@ -137,22 +137,22 @@ Widget defaultTabControllerCustom(context){
 
                     children: [
                       SizedBox(
-                        height: 60,
+                        height: MediaQuery.of(context).size.height*0.12,
                         width: double.infinity,
-                        child: listCustom(),
+                        child: listCustom(context),
                       ),
                       SizedBox(
-                        height: 150,
+                        height: MediaQuery.of(context).size.height*0.2,
 
                         child: //sliderCustom()
-                          listCustomSec(),
+                          listCustomSec(context),
 
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top:25.0,bottom: 25),
+                        padding: EdgeInsets.only(top:MediaQuery.of(context).size.height*0.012,bottom: MediaQuery.of(context).size.height*0.012),
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width*1.80,
-                          height: 140,
+                          height: MediaQuery.of(context).size.height*0.2,
                           child: ListView(
                             scrollDirection: Axis.horizontal,
                             children: [
@@ -160,7 +160,7 @@ Widget defaultTabControllerCustom(context){
                                 padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
                                 child: Container(
                                   width: MediaQuery.of(context).size.width*0.8,
-                                  height: 70,
+                                  height: MediaQuery.of(context).size.height*0.2,
                                   decoration: BoxDecoration(
                                       color: Colors.red[400],
                                       borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
@@ -171,7 +171,7 @@ Widget defaultTabControllerCustom(context){
                                 padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.06,right: MediaQuery.of(context).size.width*0.06),
                                 child: Container(
                                   width: MediaQuery.of(context).size.width*0.8,
-                                  height: 70,
+                                  height: MediaQuery.of(context).size.height*0.2,
                                   decoration: BoxDecoration(
                                       color:Colors.red[400],
                                       borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
@@ -182,7 +182,7 @@ Widget defaultTabControllerCustom(context){
                                 padding: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.06),
                                 child: Container(
                                   width: MediaQuery.of(context).size.width*0.8,
-                                  height: 70,
+                                  height: MediaQuery.of(context).size.height*0.2,
                                   decoration: BoxDecoration(
                                       color:Colors.red[400],
                                       borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
@@ -206,7 +206,7 @@ Widget defaultTabControllerCustom(context){
                               Text('Ultimas Lojas',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 20
+                                    fontSize: MediaQuery.of(context).size.height*0.035
                                 ),
                               ),
                             ],
@@ -214,10 +214,10 @@ Widget defaultTabControllerCustom(context){
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 25),
+                        padding:  EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.012),
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width*1.80,
-                          height: 90,
+                          height: MediaQuery.of(context).size.height*0.15,
                           child: ListView(
                             scrollDirection: Axis.horizontal,
                             children: [
@@ -225,7 +225,7 @@ Widget defaultTabControllerCustom(context){
                                 padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
                                 child: Container(
                                   width: MediaQuery.of(context).size.width*0.6,
-                                  height: 30,
+                                  height: MediaQuery.of(context).size.height*0.1,
                                   decoration: BoxDecoration(
                                       color: Colors.red[400],
                                       borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
@@ -236,7 +236,7 @@ Widget defaultTabControllerCustom(context){
                                 padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.06,right: MediaQuery.of(context).size.width*0.06),
                                 child: Container(
                                   width: MediaQuery.of(context).size.width*0.6,
-                                  height: 30,
+                                  height: MediaQuery.of(context).size.height*0.1,
                                   decoration: BoxDecoration(
                                       color:Colors.red[400],
                                       borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
@@ -247,7 +247,7 @@ Widget defaultTabControllerCustom(context){
                                 padding: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.06),
                                 child: Container(
                                   width: MediaQuery.of(context).size.width*0.6,
-                                  height: 30,
+                                  height: MediaQuery.of(context).size.height*0.1,
                                   decoration: BoxDecoration(
                                       color:Colors.red[400],
                                       borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
@@ -271,7 +271,7 @@ Widget defaultTabControllerCustom(context){
                               Text('Lojas',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 20
+                                    fontSize: MediaQuery.of(context).size.height*0.035
                                 ),
                               ),
                             ],
@@ -294,18 +294,18 @@ Widget defaultTabControllerCustom(context){
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                        height: 50,
-                                        width: 50,
+                                        height: MediaQuery.of(context).size.width*0.14,
+                                        width: MediaQuery.of(context).size.width*0.14,
                                         decoration: BoxDecoration(
                                             color: Colors.red,
-                                            borderRadius: BorderRadiusDirectional.circular(50)
+                                            borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                         )
                                     ),
-                                    Padding(padding: EdgeInsets.only(left: 10),
+                                    Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.010),
                                       child: Text(
                                         'Restaurante 1',
                                         style: TextStyle(
-                                            fontSize: 15
+                                            fontSize: MediaQuery.of(context).size.height*0.025
                                         ),
                                       ),
 
@@ -325,18 +325,18 @@ Widget defaultTabControllerCustom(context){
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                          height: 50,
-                                          width: 50,
+                                          height: MediaQuery.of(context).size.width*0.14,
+                                          width: MediaQuery.of(context).size.width*0.14,
                                           decoration: BoxDecoration(
                                               color: Colors.red,
-                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                              borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                           )
                                       ),
-                                      Padding(padding: EdgeInsets.only(left: 10),
+                                      Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.01),
                                         child: Text(
                                           'Restaurante 2',
                                           style: TextStyle(
-                                              fontSize: 15
+                                              fontSize: MediaQuery.of(context).size.height*0.025
                                           ),
                                         ),
 
@@ -357,18 +357,18 @@ Widget defaultTabControllerCustom(context){
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                          height: 50,
-                                          width: 50,
+                                          height: MediaQuery.of(context).size.width*0.14,
+                                          width: MediaQuery.of(context).size.width*0.14,
                                           decoration: BoxDecoration(
                                               color: Colors.red,
-                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                              borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                           )
                                       ),
-                                      Padding(padding: EdgeInsets.only(left: 10),
+                                      Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.01),
                                         child: Text(
                                           'Restaurante 3',
                                           style: TextStyle(
-                                              fontSize: 15
+                                              fontSize: MediaQuery.of(context).size.height*0.025
                                           ),
                                         ),
 
@@ -389,18 +389,18 @@ Widget defaultTabControllerCustom(context){
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                          height: 50,
-                                          width: 50,
+                                          height: MediaQuery.of(context).size.width*0.14,
+                                          width: MediaQuery.of(context).size.width*0.14,
                                           decoration: BoxDecoration(
                                               color: Colors.red,
-                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                              borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                           )
                                       ),
-                                      Padding(padding: EdgeInsets.only(left: 10),
+                                      Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.010),
                                         child: Text(
                                           'Restaurante 4',
                                           style: TextStyle(
-                                              fontSize: 15
+                                              fontSize: MediaQuery.of(context).size.height*0.025
                                           ),
                                         ),
 
@@ -421,18 +421,18 @@ Widget defaultTabControllerCustom(context){
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                          height: 50,
-                                          width: 50,
+                                          height: MediaQuery.of(context).size.width*0.14,
+                                          width: MediaQuery.of(context).size.width*0.14,
                                           decoration: BoxDecoration(
                                               color: Colors.red,
-                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                              borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                           )
                                       ),
-                                      Padding(padding: EdgeInsets.only(left: 10),
+                                      Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.01),
                                         child: Text(
                                           'Restaurante 5',
                                           style: TextStyle(
-                                              fontSize: 15
+                                              fontSize: MediaQuery.of(context).size.height*0.025
                                           ),
                                         ),
 
@@ -453,18 +453,18 @@ Widget defaultTabControllerCustom(context){
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                          height: 50,
-                                          width: 50,
+                                          height: MediaQuery.of(context).size.width*0.14,
+                                          width: MediaQuery.of(context).size.width*0.14,
                                           decoration: BoxDecoration(
                                               color: Colors.red,
-                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                              borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                           )
                                       ),
-                                      Padding(padding: EdgeInsets.only(left: 10),
+                                      Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.01),
                                         child: Text(
                                           'Restaurante 6',
                                           style: TextStyle(
-                                              fontSize: 15
+                                              fontSize: MediaQuery.of(context).size.height*0.025
                                           ),
                                         ),
 
@@ -485,18 +485,18 @@ Widget defaultTabControllerCustom(context){
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                          height: 50,
-                                          width: 50,
+                                          height: MediaQuery.of(context).size.width*0.14,
+                                          width: MediaQuery.of(context).size.width*0.14,
                                           decoration: BoxDecoration(
                                               color: Colors.red,
-                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                              borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                           )
                                       ),
-                                      Padding(padding: EdgeInsets.only(left: 10),
+                                      Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.010),
                                         child: Text(
                                           'Restaurante 7',
                                           style: TextStyle(
-                                              fontSize: 15
+                                              fontSize: MediaQuery.of(context).size.height*0.025
                                           ),
                                         ),
 
@@ -524,28 +524,28 @@ Widget defaultTabControllerCustom(context){
                     Container(
 
                       width: MediaQuery.of(context).size.width,
-                      height: 100,
+                      height: MediaQuery.of(context).size.width*0.2,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
-                            width: 100,
-                            height: 150,
+                            width: MediaQuery.of(context).size.width*0.28,
+                            height: MediaQuery.of(context).size.width*0.2,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 70,
-                                  height: 40,
+                                  width: MediaQuery.of(context).size.width*0.2,
+                                  height: MediaQuery.of(context).size.width*0.11,
 
                                   decoration: BoxDecoration(
                                       color: Colors.red,
-                                    borderRadius: BorderRadius.circular(5)
+                                    borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height*0.012)
                                   ),
                                 ),
                                 Padding(
-                                  padding:  EdgeInsets.only(top:2.0),
+                                  padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height*0.01),
                                   child: Text('Conveniências'),
                                 ),
                               ],
@@ -553,25 +553,25 @@ Widget defaultTabControllerCustom(context){
                           ),
 
                           Padding(
-                            padding: EdgeInsets.only(left:1),
+                            padding: EdgeInsets.only(left:MediaQuery.of(context).size.height*0.005),
                             child:  Container(
 
-                              width: 100,
-                              height: 150,
+                              width: MediaQuery.of(context).size.width*0.28,
+                              height: MediaQuery.of(context).size.width*0.2,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    width: 70,
-                                    height: 40,
+                                    width: MediaQuery.of(context).size.width*0.2,
+                                    height: MediaQuery.of(context).size.width*0.11,
                                     decoration: BoxDecoration(
                                         color: Colors.red,
-                                        borderRadius: BorderRadius.circular(5)
+                                        borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height*0.01)
                                     ),
                                   ),
                                   Padding(
-                                    padding:  EdgeInsets.only(top:2.0),
+                                    padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height*0.01),
                                     child: Text('Bebidas'),
                                   ),
                                 ],
@@ -582,10 +582,10 @@ Widget defaultTabControllerCustom(context){
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top:25.0,bottom: 25),
+                      padding: EdgeInsets.only(top:MediaQuery.of(context).size.height*0.05,bottom: MediaQuery.of(context).size.height*0.05),
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width*1.80,
-                        height: 140,
+                        height: MediaQuery.of(context).size.height*0.2,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
@@ -593,7 +593,7 @@ Widget defaultTabControllerCustom(context){
                               padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
                               child: Container(
                                 width: MediaQuery.of(context).size.width*0.8,
-                                height: 70,
+                                height: MediaQuery.of(context).size.height*0.2,
                                 decoration: BoxDecoration(
                                     color: Colors.red[400],
                                   borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
@@ -604,7 +604,7 @@ Widget defaultTabControllerCustom(context){
                               padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.06,right: MediaQuery.of(context).size.width*0.06),
                               child: Container(
                                 width: MediaQuery.of(context).size.width*0.8,
-                                height: 70,
+                                height: MediaQuery.of(context).size.height*0.2,
                                 decoration: BoxDecoration(
                                   color:Colors.red[400],
                                     borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
@@ -628,7 +628,7 @@ Widget defaultTabControllerCustom(context){
                             Text('Mais Pedidos',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 20
+                              fontSize: MediaQuery.of(context).size.height*0.035
                             ),
                             ),
                           ],
@@ -652,18 +652,18 @@ Widget defaultTabControllerCustom(context){
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                    height: 50,
-                                    width: 50,
+                                    height: MediaQuery.of(context).size.width*0.14,
+                                    width: MediaQuery.of(context).size.width*0.14,
                                     decoration: BoxDecoration(
                                         color: Colors.red,
-                                        borderRadius: BorderRadiusDirectional.circular(50)
+                                        borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                     )
                                 ),
-                                Padding(padding: EdgeInsets.only(left: 10),
+                                Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.01),
                                   child: Text(
                                     'Restaurante 1',
                                     style: TextStyle(
-                                        fontSize: 15
+                                        fontSize: MediaQuery.of(context).size.height*0.025
                                     ),
                                   ),
 
@@ -683,18 +683,18 @@ Widget defaultTabControllerCustom(context){
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                      height: 50,
-                                      width: 50,
+                                      height: MediaQuery.of(context).size.width*0.14,
+                                      width: MediaQuery.of(context).size.width*0.14,
                                       decoration: BoxDecoration(
                                           color: Colors.red,
-                                          borderRadius: BorderRadiusDirectional.circular(50)
+                                          borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                       )
                                   ),
-                                  Padding(padding: EdgeInsets.only(left: 10),
+                                  Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.01),
                                     child: Text(
                                       'Restaurante 2',
                                       style: TextStyle(
-                                          fontSize: 15
+                                          fontSize: MediaQuery.of(context).size.height*0.025
                                       ),
                                     ),
 
@@ -716,18 +716,18 @@ Widget defaultTabControllerCustom(context){
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                      height: 50,
-                                      width: 50,
+                                      height: MediaQuery.of(context).size.width*0.14,
+                                      width: MediaQuery.of(context).size.width*0.14,
                                       decoration: BoxDecoration(
                                           color: Colors.red,
-                                          borderRadius: BorderRadiusDirectional.circular(50)
+                                          borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.14)
                                       )
                                   ),
-                                  Padding(padding: EdgeInsets.only(left: 10),
+                                  Padding(padding: EdgeInsets.only(left: MediaQuery.of(context).size.height*0.01),
                                     child: Text(
                                       'Restaurante 3',
                                       style: TextStyle(
-                                          fontSize: 15
+                                          fontSize: MediaQuery.of(context).size.height*0.025
                                       ),
                                     ),
 
@@ -754,21 +754,21 @@ Widget defaultTabControllerCustom(context){
 }
 
 
-Widget BottomAppBarCustom(var l){
+Widget BottomAppBarCustom(var l,context){
 
-  double _iconT=35;
-  double _textT=10;
+  double _iconT=MediaQuery.of(context).size.height*0.07;
+  double _textT=MediaQuery.of(context).size.height*0.017;
   return
       Container(
-      height: 69,
+      height: 0.12*MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
           border:Border(
             top: BorderSide(
-                width: .7,
+                width: 0.002*MediaQuery.of(context).size.width,
                 color: Color.fromRGBO(0, 0, 0, 0.3)
             ),
             bottom:  BorderSide(
-                width: 1,
+                width: 0.002*MediaQuery.of(context).size.width,
                 color: Color.fromRGBO(0, 0, 0, 0.3)
             ),
           )
@@ -877,7 +877,7 @@ Widget BottomAppBarCustom(var l){
 }
 
 
-Widget listCustom(){
+Widget listCustom(context){
 
   List<String> item =[
     'Filtros','Pra retirar','Ordenar','Entrega gratís','Vale-refeição',
@@ -889,7 +889,7 @@ Widget listCustom(){
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
       itemBuilder: (contextList,index){
-        return Padding(padding: EdgeInsets.all(5),
+        return Padding(padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
           child: Container(
 
               //width: 120,
@@ -897,7 +897,7 @@ Widget listCustom(){
 
               decoration: BoxDecoration(
                 //color: Colors.deepPurple,
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.08),
                   border: Border.all(
                       style: BorderStyle.solid,
                       color: Color(0xffBABABA)
@@ -907,7 +907,7 @@ Widget listCustom(){
               child: GestureDetector(
                   child:Center(
                     child: Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.04),
                     child:Row(
 
                       children: [
@@ -915,11 +915,11 @@ Widget listCustom(){
                           '${item[index]}',
                           style: TextStyle(
                             color: Color(0xff5D5D5D),
-                            fontSize: 16,
+                            fontSize: MediaQuery.of(context).size.height*0.025,
                           ),
                         ),
                         SizedBox(
-                          width: 20,
+                          width: MediaQuery.of(context).size.width*0.1,
                         )
                       ],
                     )
@@ -933,7 +933,7 @@ Widget listCustom(){
   );
 }
 
-Widget listCustomSec(){
+Widget listCustomSec(context){
 
 
   List<String> item =[
@@ -946,18 +946,18 @@ Widget listCustomSec(){
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
       itemBuilder: (contextList,index){
-        return Padding(padding: EdgeInsets.all(5),
+        return Padding(padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
           child: GestureDetector(
             child:Column(
 
               children: [
                 Container(
-                width: 100,
-                height: 50,
+                width: MediaQuery.of(context).size.width*0.2,
+                height: MediaQuery.of(context).size.width*0.12,
               ),
                 Container(
-                width: 100,
-                height: 50,
+                width: MediaQuery.of(context).size.width*0.2,
+                height: MediaQuery.of(context).size.width*0.12,
 
                 decoration: BoxDecoration(
                   color: (index%2==0 ||index==0)?Color(0xff9FC973):Colors.purple,
@@ -968,7 +968,7 @@ Widget listCustomSec(){
                   '${item[index]}',
                   style: TextStyle(
                     color: Color(0xff5D5D5D),
-                    fontSize: 12,
+                    fontSize: MediaQuery.of(context).size.height*0.019,
                   ),
                 ),
               ]
@@ -980,7 +980,8 @@ Widget listCustomSec(){
   );
 }
 
-Widget sliderCustom(){
+/*
+Widget sliderCustom(context){
 
 
   List<String> item =[
@@ -1018,7 +1019,7 @@ Widget sliderCustom(){
 
               children: [
                 Container(
-                  width: 100,
+                  width: MediaQuery.of(context).size.width*0.1,
                   height: 50,
                 ),
                 Container(
@@ -1045,4 +1046,4 @@ Widget sliderCustom(){
     );
       }
   );
-}
+} */
