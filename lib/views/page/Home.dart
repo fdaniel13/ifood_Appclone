@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'page/Perfil.dart';
+import 'Perfil.dart';
 import 'package:ifood_clone/views/page/pedidos.dart';
 import 'package:flutter/services.dart';
+import 'busca.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -29,9 +30,6 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body:estado(l),
 
-    /*l=='home'?
-           defaultTabControllerCustom()
-                : l=='user' ? Pedido()/*Perfil()*/ :defaultTabControllerCustom(),*/
       bottomNavigationBar:BottomAppBarCustom(f) ,
     );
 
@@ -52,6 +50,8 @@ Widget estado(String l){
     case 'user': return Perfil();
     break;
     case 'pedido': return Pedido();
+    break;
+    case 'busca':return Busca();
     break;
     default: return defaultTabControllerCustom();
     break;
@@ -216,6 +216,7 @@ Widget BottomAppBarCustom(var l){
                   color: Color.fromRGBO(1, 1, 1, 0.4),
                 ),
                 onPressed:  (){
+                  l('busca');
 
                 },
                 focusColor: Colors.black,
@@ -282,16 +283,6 @@ Widget BottomAppBarCustom(var l){
     );
 }
 
-class Busca extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.deepOrange,
-    );
-  }
-}
 
 Widget listCustom(){
 
