@@ -1,5 +1,11 @@
 # ifood_clone
 
+<img src='lib/gifsUi/restaurantes.gif' width='150' > <img src='lib/gifsUi/mercados.gif' width='150'> <img src='lib/gifsUi/busca.gif' width='150'> <img src='lib/gifsUi/pedidos.gif' width='150'> <img src='lib/gifsUi/perfil.gif' width='150'> 
+
+
+
+
+
 A new Flutter application.
 
 ## Getting Started
