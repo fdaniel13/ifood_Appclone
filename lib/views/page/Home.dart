@@ -129,25 +129,389 @@ Widget defaultTabControllerCustom(context){
         body: TabBarView(
           children: [
 
-            Container(
+            SingleChildScrollView(
+              child: Container(
+                  height: MediaQuery.of(context).size.height*2.05,
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
 
-                child: Column(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: double.infinity,
+                        child: listCustom(),
+                      ),
+                      SizedBox(
+                        height: 150,
 
-                  children: [
-                    SizedBox(
-                      height: 60,
-                      width: double.infinity,
-                      child: listCustom(),
-                    ),
-                    SizedBox(
-                      height: 150,
+                        child: //sliderCustom()
+                          listCustomSec(),
 
-                      child: //sliderCustom()
-                        listCustomSec(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top:25.0,bottom: 25),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width*1.80,
+                          height: 140,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width*0.8,
+                                  height: 70,
+                                  decoration: BoxDecoration(
+                                      color: Colors.red[400],
+                                      borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.06,right: MediaQuery.of(context).size.width*0.06),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width*0.8,
+                                  height: 70,
+                                  decoration: BoxDecoration(
+                                      color:Colors.red[400],
+                                      borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.06),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width*0.8,
+                                  height: 70,
+                                  decoration: BoxDecoration(
+                                      color:Colors.red[400],
+                                      borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
+                                  ),
+                                ),
+                              ),
 
-                    )
-                  ],
-                )),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:EdgeInsets.only(top:MediaQuery.of(context).size.height*0.04,bottom:MediaQuery.of(context).size.height*0.04 ),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height*0.08,
+                          padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text('Ultimas Lojas',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 25),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width*1.80,
+                          height: 90,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width*0.6,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      color: Colors.red[400],
+                                      borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.06,right: MediaQuery.of(context).size.width*0.06),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width*0.6,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      color:Colors.red[400],
+                                      borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.06),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width*0.6,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      color:Colors.red[400],
+                                      borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
+                                  ),
+                                ),
+                              ),
+
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:EdgeInsets.only(top:MediaQuery.of(context).size.height*0.04,bottom:MediaQuery.of(context).size.height*0.04 ),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height*0.08,
+                          padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text('Lojas',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height*0.9,
+                          child: ListView(
+                            physics: NeverScrollableScrollPhysics(),
+                            children: [
+                              Container(
+
+                                width: MediaQuery.of(context).size.width*0.4,
+                                height: MediaQuery.of(context).size.height*0.1,
+                                padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                        height: 50,
+                                        width: 50,
+                                        decoration: BoxDecoration(
+                                            color: Colors.red,
+                                            borderRadius: BorderRadiusDirectional.circular(50)
+                                        )
+                                    ),
+                                    Padding(padding: EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        'Restaurante 1',
+                                        style: TextStyle(
+                                            fontSize: 15
+                                        ),
+                                      ),
+
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.width*0.05),
+                                child: Container(
+
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height*0.1,
+                                  padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                          height: 50,
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                          )
+                                      ),
+                                      Padding(padding: EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          'Restaurante 2',
+                                          style: TextStyle(
+                                              fontSize: 15
+                                          ),
+                                        ),
+
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.width*0.05),
+                                child: Container(
+
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height*0.1,
+                                  padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                          height: 50,
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                          )
+                                      ),
+                                      Padding(padding: EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          'Restaurante 3',
+                                          style: TextStyle(
+                                              fontSize: 15
+                                          ),
+                                        ),
+
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.width*0.05),
+                                child: Container(
+
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height*0.1,
+                                  padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                          height: 50,
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                          )
+                                      ),
+                                      Padding(padding: EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          'Restaurante 4',
+                                          style: TextStyle(
+                                              fontSize: 15
+                                          ),
+                                        ),
+
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.width*0.05),
+                                child: Container(
+
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height*0.1,
+                                  padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                          height: 50,
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                          )
+                                      ),
+                                      Padding(padding: EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          'Restaurante 5',
+                                          style: TextStyle(
+                                              fontSize: 15
+                                          ),
+                                        ),
+
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.width*0.05),
+                                child: Container(
+
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height*0.1,
+                                  padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                          height: 50,
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                          )
+                                      ),
+                                      Padding(padding: EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          'Restaurante 6',
+                                          style: TextStyle(
+                                              fontSize: 15
+                                          ),
+                                        ),
+
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.width*0.05),
+                                child: Container(
+
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height*0.1,
+                                  padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                          height: 50,
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius: BorderRadiusDirectional.circular(50)
+                                          )
+                                      ),
+                                      Padding(padding: EdgeInsets.only(left: 10),
+                                        child: Text(
+                                          'Restaurante 7',
+                                          style: TextStyle(
+                                              fontSize: 15
+                                          ),
+                                        ),
+
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                      )
+
+                    ],
+                  )),
+            ),
 
 
             SingleChildScrollView(
