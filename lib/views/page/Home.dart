@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -28,7 +30,7 @@ class _HomeState extends State<Home> {
       DeviceOrientation.portraitUp,DeviceOrientation.portraitDown
     ]);
     return Scaffold(
-      body:estado(l),
+      body:estado(l,context),
 
       bottomNavigationBar:BottomAppBarCustom(f) ,
     );
@@ -42,10 +44,10 @@ class _HomeState extends State<Home> {
 }
 
 
-Widget estado(String l){
+Widget estado(String l,context){
 
   switch(l) {
-    case 'home': return defaultTabControllerCustom();
+    case 'home': return defaultTabControllerCustom(context);
     break;
     case 'user': return Perfil();
     break;
@@ -53,13 +55,13 @@ Widget estado(String l){
     break;
     case 'busca':return Busca();
     break;
-    default: return defaultTabControllerCustom();
+    default: return defaultTabControllerCustom(context);
     break;
   }
 
 }
 
-Widget defaultTabControllerCustom(){
+Widget defaultTabControllerCustom(context){
 
   return DefaultTabController(
       length: 2,
@@ -148,8 +150,235 @@ Widget defaultTabControllerCustom(){
                 )),
 
 
-            Container(
+            SingleChildScrollView(
+              child: Container(
+                height: MediaQuery.of(context).size.height*1.05,
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
 
+                      width: MediaQuery.of(context).size.width,
+                      height: 100,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 150,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 70,
+                                  height: 40,
+
+                                  decoration: BoxDecoration(
+                                      color: Colors.red,
+                                    borderRadius: BorderRadius.circular(5)
+                                  ),
+                                ),
+                                Padding(
+                                  padding:  EdgeInsets.only(top:2.0),
+                                  child: Text('Conveniências'),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Padding(
+                            padding: EdgeInsets.only(left:1),
+                            child:  Container(
+
+                              width: 100,
+                              height: 150,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: 70,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                        color: Colors.red,
+                                        borderRadius: BorderRadius.circular(5)
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:  EdgeInsets.only(top:2.0),
+                                    child: Text('Bebidas'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top:25.0,bottom: 25),
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width*1.80,
+                        height: 140,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width*0.8,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                    color: Colors.red[400],
+                                  borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.06,right: MediaQuery.of(context).size.width*0.06),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width*0.8,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                  color:Colors.red[400],
+                                    borderRadius: BorderRadiusDirectional.circular(MediaQuery.of(context).size.width*0.06)
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    Padding(
+                      padding:EdgeInsets.only(top:MediaQuery.of(context).size.height*0.04,bottom:MediaQuery.of(context).size.height*0.04 ),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height*0.08,
+                        padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text('Mais Pedidos',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20
+                            ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height*0.4,
+                      child: ListView(
+                        physics: NeverScrollableScrollPhysics(),
+                        children: [
+                          Container(
+
+                            width: MediaQuery.of(context).size.width*0.4,
+                            height: MediaQuery.of(context).size.height*0.1,
+                            padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                    height: 50,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                        color: Colors.red,
+                                        borderRadius: BorderRadiusDirectional.circular(50)
+                                    )
+                                ),
+                                Padding(padding: EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    'Restaurante 1',
+                                    style: TextStyle(
+                                        fontSize: 15
+                                    ),
+                                  ),
+
+                                )
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:  EdgeInsets.only(top:MediaQuery.of(context).size.width*0.05),
+                            child: Container(
+
+                              width: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height*0.1,
+                              padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          color: Colors.red,
+                                          borderRadius: BorderRadiusDirectional.circular(50)
+                                      )
+                                  ),
+                                  Padding(padding: EdgeInsets.only(left: 10),
+                                    child: Text(
+                                      'Restaurante 2',
+                                      style: TextStyle(
+                                          fontSize: 15
+                                      ),
+                                    ),
+
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+
+                          Padding(
+                            padding:  EdgeInsets.only(top:MediaQuery.of(context).size.width*0.05),
+                            child: Container(
+
+                              width: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height*0.1,
+                              padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.02),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          color: Colors.red,
+                                          borderRadius: BorderRadiusDirectional.circular(50)
+                                      )
+                                  ),
+                                  Padding(padding: EdgeInsets.only(left: 10),
+                                    child: Text(
+                                      'Restaurante 3',
+                                      style: TextStyle(
+                                          fontSize: 15
+                                      ),
+                                    ),
+
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    )
+                  ],
+                ),
+
+              ),
             )
           ],
         ),
